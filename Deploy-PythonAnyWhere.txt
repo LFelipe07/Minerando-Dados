@@ -1,0 +1,74 @@
+1 - crie um novo projeto no vs code ou pycharm
+2 - cole os arquivos do dashboard que criamos
+3 - cd para o folder onde está o projeto
+3 - criar ambinte virtual
+	Linux :
+		- Criar o ambiente: python3 -m venv projec-venv-name
+		- Ativar o ambuente: source projec-venv-name/bin/activate
+	
+#velho	Windows:
+		-Criar o ambiente: python -m venv project-venv-name	
+		-Ativar o ambiente: project-env-name\scripts\activate.bat
+
+	Funciona:
+		-python -m venv 'nome do ambiente'
+	-ativar
+		-.\Dash-Project\Scripts\Activate.bat
+		Essa ativação é pelo powershell, entao eu preciso ativar como admin
+ nesse link : https://www.youtube.com/watch?v=m1TYpvIYm74 
+		-.\Dash-Project\Scripts\Activate.ps1
+
+
+
+5 - ativar o ambiente e instalar bibliotecas
+ - pip install dash
+ - pip install pandas
+ - pip install numpy
+ - pip install dash-bootstrap-components
+
+6- Verificar se app funciona
+7 - Criar requirements.txt
+	- pip freeze > requirements.txt
+8 - Criar arquivo.gitignore
+	- escrever project-venv-name/ dentro do arquivo
+9 - Criar Git 
+	- git init
+	- git add .
+	- git commit -m 'meu primeiro commit'
+ 	
+10 - Criar repo no github
+11 - Dê um push do repositório criado
+
+12 - push o repositorio para python anywhere
+	- Criar conta no pythonAnyWhere
+	- Abrir o Bash ( Console / bash ) 
+	- git clone [github repo que foi criado]
+
+13 - Criar ambiente virtual no PythonAnyWhere e instalar as bibliotecas
+	- mkvirtualenv dash-env --python=/usr/bin/python3.8
+	- cd para o repositório que foi criado no github (cd deploy-dash-app/)
+	- pip install -r requirements.txt
+
+14- Adicionar novo App no PythonAnyWhere
+	- clicar em : next - Flask - python3.8 - next
+15 - clicar em Web
+ 	- ir em source code
+	- trocar mysite pelo nome do repositorio
+	- home/myusername/[nome do reposotirio do github].
+16 - ir em Virtualenv e escreva o nome do ambiente virtual que foi criado no PythonAnyWhere ( step 13)
+17- Ir em "WSGi configuration file" selecionar e trocar arquivos:
+	- Trocar "mysite" pelo nome do repo do github
+	- trocar "from fask_app import app as application" por  
+			from sales_dashboard import app
+			application = app.server
+18 - clicar em web
+	- reload app
+	- clicar no app
+19 - rodar o app e verificar se tem erro
+	- trocar o csv file pelo endereço no repo do github
+		- https://raw.githubusercontent.com/jmcabreira/deploy-dash-app/main/sales_data_sample.csv
+
+nota: deletar ambiente virtual no PythonAnyWhere
+	- rm -rf /home/myusername/.virtualenvs/ambiente_virtual_criado no PythonAnyWhere
+ativar ambiente virtual no PythonAnyWhere
+	- workon ambiente_virtual_criado_no_Python_Any_Where
